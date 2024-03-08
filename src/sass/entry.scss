@@ -11,10 +11,6 @@ body {
     flex: auto;
   }
 
-  .contact-me {
-    background-color: $main-color;
-  }
-
   .introduction {
     $colored-background-size: 50%;
 
@@ -42,13 +38,13 @@ body {
       height: 100px;
       width: 120%;
 
-      $diagonal-offset: 48%;
+      $diagonal_offset: 48%;
 
       background-image: linear-gradient(
         to bottom right,
         $main-color $diagonal_offset,
-        #dcdcdc calc(#{$diagonal-offset} + 3px),
-        white calc(#{$diagonal-offset} + 12px)
+        #dcdcdc calc(#{$diagonal_offset} + 3px),
+        white calc(#{$diagonal_offset} + 12px)
       );
 
       // background-image: linear-gradient(
@@ -60,4 +56,7 @@ body {
     }
   }
 
+  .contact-me {
+    background-color: $main-color;
+  }
 }
