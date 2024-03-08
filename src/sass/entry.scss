@@ -1,1 +1,63 @@
 @use "reset";
+
+$main-color: #00c8e6;
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  > * {
+    flex: auto;
+  }
+
+  .contact-me {
+    background-color: $main-color;
+  }
+
+  .introduction {
+    $colored-background-size: 50%;
+
+    overflow: hidden;
+    position: relative;
+
+    $top-background-height: 50px;
+
+    &::before {
+      content: " ";
+      height: $top-background-height;
+      background-color: $main-color;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: -1;
+    }
+
+    &::after {
+      content: "";
+      top: $top-background-height;
+      left: 0;
+      position: absolute;
+      height: 100px;
+      width: 120%;
+
+      $diagonal-offset: 48%;
+
+      background-image: linear-gradient(
+        to bottom right,
+        $main-color $diagonal_offset,
+        #dcdcdc calc(#{$diagonal-offset} + 3px),
+        white calc(#{$diagonal-offset} + 12px)
+      );
+
+      // background-image: linear-gradient(
+      //   to bottom right,
+      //   $main-color 48%,
+      //   white 50%
+      // );
+      z-index: -1;
+    }
+  }
+
+}
