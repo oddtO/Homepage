@@ -32,7 +32,7 @@ body {
 
     &::after {
       content: "";
-      top: $top-background-height;
+      top: $top-background-height - 1px;
       left: 0;
       position: absolute;
       height: 100px;
