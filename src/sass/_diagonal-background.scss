@@ -1,0 +1,37 @@
+@mixin diagonal-background($top-background-height, $main-color) {
+  &::before {
+    content: " ";
+    height: $top-background-height;
+    background-color: $main-color;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+  }
+
+  &::after {
+    content: "";
+    top: $top-background-height - 1px;
+    left: 0;
+    position: absolute;
+    height: 100px;
+    width: 120%;
+
+    $diagonal-offset: 48%;
+
+    background-image: linear-gradient(
+      to bottom right,
+      $main-color $diagonal_offset,
+      #dcdcdc calc(#{$diagonal_offset} + 3px),
+      white calc(#{$diagonal_offset} + 12px)
+    );
+
+    // background-image: linear-gradient(
+    //   to bottom right,
+    //   $main-color 48%,
+    //   white 50%
+    // );
+    z-index: -1;
+  }
+}
