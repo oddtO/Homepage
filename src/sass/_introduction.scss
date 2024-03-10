@@ -1,0 +1,6 @@
+    $top-background-height: 50px;
+
+    @include diagonal-background.diagonal-background(
+      $top-background-height,
+      $main-color
+    );
