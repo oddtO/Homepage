@@ -1,6 +1,26 @@
+@use "diagonal-background";
+
+@mixin intro($main-color) {
+  .introduction {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+
     $top-background-height: 50px;
 
     @include diagonal-background.diagonal-background(
       $top-background-height,
       $main-color
     );
+
+    figure {
+      float: left;
+    }
+
+    article {
+      background-color: yellow;
+      border: 1px solid #000;
+    }
+  }
+}

@@ -56,6 +56,8 @@ body {
     }
   }
 
+  @include introduction.intro($main-color);
+
   .contact-me {
     background-color: $main-color;
   }
