@@ -16,6 +16,8 @@
       $main-color
     );
 
+    $figure-height: 50vh;
+
     article {
       $introduction-height: 70vh;
 
@@ -24,6 +26,15 @@
       background-color: yellow;
       border: 1px solid #000;
 
+      @media screen and (width > 930px) {
+        figure {
+          height: $figure-height;
+          margin-right: 30px;
+          transform: scale(1.2);
+        }
+
+        min-height: 30vh;
+      }
       @media screen and (width <= 600px) {
         display: flex;
         flex-direction: column;
@@ -58,11 +69,11 @@
 
     font-size: 30px;
 
-    $img-size: 30vh;
+    $img-size: 50vw;
 
     h1 {
       display: inline-block;
-      width: calc(100% - $img-size);
+      width: calc(100% - #{$figure-height});
       text-align: center;
     }
 
