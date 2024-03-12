@@ -1,6 +1,13 @@
 @use "reset";
+@use "introduction";
 
 $main-color: #00c8e6;
+
+img {
+  max-width: 300px;
+  min-height: 300px;
+  object-fit: cover;
+}
 
 body {
   display: flex;
@@ -11,54 +18,13 @@ body {
     flex: auto;
   }
 
-  .introduction {
-    $colored-background-size: 50%;
-
-    overflow: hidden;
-    position: relative;
-
-    $top-background-height: 50px;
-
-    &::before {
-      content: " ";
-      height: $top-background-height;
-      background-color: $main-color;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: -1;
-    }
-
-    &::after {
-      content: "";
-      top: $top-background-height - 1px;
-      left: 0;
-      position: absolute;
-      height: 100px;
-      width: 120%;
-
-      $diagonal_offset: 48%;
-
-      background-image: linear-gradient(
-        to bottom right,
-        $main-color $diagonal_offset,
-        #dcdcdc calc(#{$diagonal_offset} + 3px),
-        white calc(#{$diagonal_offset} + 12px)
-      );
-
-      // background-image: linear-gradient(
-      //   to bottom right,
-      //   $main-color 48%,
-      //   white 50%
-      // );
-      z-index: -1;
-    }
+  > section {
+    min-height: 100vh;
   }
-
-  @include introduction.intro($main-color);
 
   .contact-me {
     background-color: $main-color;
   }
 }
+
+@include introduction.intro($main-color);
