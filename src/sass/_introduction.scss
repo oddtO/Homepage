@@ -23,31 +23,56 @@
       $introduction-height: 70vh;
 
       // min-height: $introduction-height;
-      margin: 0 auto;
-      width: 30em;
+      margin: 0 3em;
+
+      // width: 30em;
       background-color: yellow;
       border: 1px solid #000;
 
-      $desktop-screen-width: string.unquote("(width > 930px)");
+      $tablet-threshold: 700px;
+      $desktop-threshold: 1000px;
+      $desktop-screen-width: string.unquote("(width > #{$desktop-threshold})");
       $tablet-screen-width: string.unquote(
-        "(width > 600px) and (width <= 930px)"
+        "(width > #{$tablet-threshold}) and (width <= #{$desktop-threshold})"
       );
-      $mobile-screen-width: string.unquote("(width <= 600px)");
+      $mobile-screen-width: string.unquote("(width <= #{$tablet-threshold})");
 
       @media screen and #{$desktop-screen-width}, #{$tablet-screen-width} {
         figure {
           height: $figure-height;
+          transform: scale(1.4);
 
-          @media screen and  #{$desktop-screen-width} {
-            margin-right: 1em;
-            transform: scale(1.2);
+          $float-offset: 2em;
+
+          @media #{$desktop-screen-width} {
+            margin-right: $float-offset;
+          }
+
+          @media #{$tablet-screen-width} {
+            position: relative;
+
+            //      figcaption {
+            //        position: absolute;
+            //        left: 75%;
+            //        bottom: 75%;
+            // color: #000;
+            //      }
+            margin: {
+              right: $float-offset;
+              bottom: $float-offset;
+            }
+          }
+        }
+
+        h1 {
+          padding: {
+            left: 0.5em;
+            top: 1em;
+            bottom: 1em;
           }
         }
 
         // min-height: 1em;
-      }
-
-      @media screen and  #{$tablet-screen-width} {
       }
 
       @media screen and  #{$mobile-screen-width} {
@@ -89,7 +114,6 @@
     h1 {
       display: inline-block;
       width: calc(100% - #{$figure-height});
-      text-align: center;
     }
 
     // figure,
