@@ -1,4 +1,5 @@
 @use "diagonal-background";
+@use "sass:string";
 
 @mixin intro($main-color) {
   .introduction {
@@ -26,7 +27,13 @@
       background-color: yellow;
       border: 1px solid #000;
 
-      @media screen and (width > 930px) {
+      $desktop-screen-width: string.unquote("(width > 930px)");
+      $tablet-screen-width: string.unquote(
+        "(width > 600px) and (width <= 930px)"
+      );
+      $mobile-screen-width: string.unquote("(width <= 600px)");
+
+      @media screen and #{$desktop-screen-width} {
         figure {
           height: $figure-height;
           margin-right: 30px;
@@ -35,7 +42,11 @@
 
         min-height: 30vh;
       }
-      @media screen and (width <= 600px) {
+
+      @media screen and  #{$tablet-screen-width} {
+      }
+
+      @media screen and  #{$mobile-screen-width} {
         display: flex;
         flex-direction: column;
         align-items: center;
