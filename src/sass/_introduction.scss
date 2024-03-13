@@ -17,13 +17,14 @@
       $main-color
     );
 
-    $figure-height: 50vh;
+    $figure-height: 10em;
 
     article {
       $introduction-height: 70vh;
 
-      min-height: $introduction-height;
-      margin: 0 150px;
+      // min-height: $introduction-height;
+      margin: 0 auto;
+      width: 30em;
       background-color: yellow;
       border: 1px solid #000;
 
@@ -33,14 +34,17 @@
       );
       $mobile-screen-width: string.unquote("(width <= 600px)");
 
-      @media screen and #{$desktop-screen-width} {
+      @media screen and #{$desktop-screen-width}, #{$tablet-screen-width} {
         figure {
           height: $figure-height;
-          margin-right: 30px;
-          transform: scale(1.2);
+
+          @media screen and  #{$desktop-screen-width} {
+            margin-right: 1em;
+            transform: scale(1.2);
+          }
         }
 
-        min-height: 30vh;
+        // min-height: 1em;
       }
 
       @media screen and  #{$tablet-screen-width} {
@@ -58,7 +62,7 @@
         figure {
           order: 1;
           float: none;
-          width: calc(100vw - 20px * 2);
+          width: 100%;
 
           // height: 500px;
         }
@@ -78,7 +82,7 @@
       }
     }
 
-    font-size: 30px;
+    font-size: 1em;
 
     $img-size: 50vw;
 
