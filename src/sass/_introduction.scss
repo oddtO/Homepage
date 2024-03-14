@@ -10,6 +10,10 @@
 
     // height: 60vh;
 
+    span {
+      line-height: 1.2;
+    }
+
     $top-background-height: 0;
     $bottom-background-height: 1500px;
 
@@ -107,11 +111,18 @@
 
         h1 {
           order: 2;
-          width: 100%;
+
+          // width: 100%;
+          width: auto;
+          padding: 20px 0;
+          font-size: 1.2em;
+          font-weight: 600;
         }
 
         span {
           order: 3;
+
+          // padding: 0 0.5em;
         }
       }
     }
@@ -133,9 +144,6 @@
     img {
       height: 100%;
       object-fit: cover;
-    }
-
-    span {
     }
 
     figure {
