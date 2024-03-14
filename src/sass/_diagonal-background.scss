@@ -31,6 +31,7 @@
     transform: translate(#{$left-offset}, #{$top-offset})
       rotateZ(#{$rotate-degrees});
     transform-origin: 0;
+    box-shadow: 2px 2px 20px gray;
 
     $diagonal-offset: 50%;
 

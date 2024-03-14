@@ -29,8 +29,14 @@
       margin: 0 3em;
 
       // width: 30em;
-      background-color: yellow;
-      border: 1px solid #000;
+      background-color: white;
+
+      &,
+      figure {
+        box-shadow: 2px 2px 20px gray;
+      }
+
+      // border: 1px solid #000;
 
       $tablet-threshold: 700px;
       $desktop-threshold: 1000px;
