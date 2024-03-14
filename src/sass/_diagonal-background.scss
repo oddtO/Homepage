@@ -1,31 +1,45 @@
-@mixin diagonal-background($top-background-height, $main-color) {
-  &::before {
-    content: " ";
-    height: $top-background-height;
-    background-color: $main-color;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: -1;
-  }
+@mixin diagonal-background(
+  $top-offset,
+  $left-offset,
+  $rotate-degrees,
+  $main-color
+) {
+  // overflow-x: hidden;
+  z-index: -1;
+
+  // &::before {
+  //   content: " ";
+  //   height: $top-background-height;
+  //   background-color: $main-color;
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   width: 100%;
+  //   z-index: -1;
+  // }
 
   &::after {
     content: "";
-    top: $top-background-height - 1px;
-    left: 0;
+
+    // top: $top-background-height - 1px;
+
+    // left: -100px;
     position: absolute;
-    height: 100px;
-    width: 120%;
+    height: 4500px;
+    width: 700%;
+    background-color: $main-color;
+    transform: translate(#{$left-offset}, #{$top-offset})
+      rotateZ(#{$rotate-degrees});
+    transform-origin: 0;
 
-    $diagonal-offset: 48%;
+    $diagonal-offset: 50%;
 
-    background-image: linear-gradient(
-      to bottom right,
-      $main-color $diagonal_offset,
-      #dcdcdc calc(#{$diagonal_offset} + 3px),
-      white calc(#{$diagonal_offset} + 12px)
-    );
+    // background-image: linear-gradient(
+    //   to bottom right,
+    //   $main-color $diagonal_offset,
+    //   #dcdcdc calc(#{$diagonal_offset} + 3px),
+    //   white calc(#{$diagonal_offset} + 12px)
+    // );
 
     // background-image: linear-gradient(
     //   to bottom right,

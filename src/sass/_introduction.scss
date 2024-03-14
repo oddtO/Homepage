@@ -10,11 +10,14 @@
 
     // height: 60vh;
 
-    $top-background-height: 50px;
+    $top-background-height: 0;
+    $bottom-background-height: 1500px;
 
     @include diagonal-background.diagonal-background(
-      $top-background-height,
-      $main-color
+      $main-color: $main-color,
+      $top-offset: 100px,
+      $left-offset: 7%,
+      $rotate-degrees: 260deg
     );
 
     $figure-height: 10em;
