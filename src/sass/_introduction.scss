@@ -2,6 +2,7 @@
 @use "proportion";
 @use "sass:math";
 @use "breakpoints" as *;
+@use "buttons";
 
 @mixin intro($main-color) {
   .introduction {
@@ -33,6 +34,10 @@
     @media screen and #{$mobile-screen-width} {
       // height: 40em;
 
+      article {
+        background-color: transparent !important;
+      }
+
       &::after {
         --top-offset: -6em;
 
@@ -52,7 +57,11 @@
       $introduction-height: 70vh;
 
       // min-height: $introduction-height;
-      margin: 100px 3em;
+      margin: {
+        top: 100px;
+        right: 3em;
+        left: 6em;
+      }
 
       // width: 30em;
       background-color: white;
@@ -67,17 +76,15 @@
       @media screen and #{$desktop-screen-width}, #{$tablet-screen-width} {
         figure {
           height: $figure-height;
-          transform: scale(1.4);
+          transform: translateY(20%) scale(1.7);
 
-          $float-offset: 2em;
+          $float-offset: 3em;
 
           @media #{$desktop-screen-width} {
             margin-right: $float-offset;
           }
 
           @media #{$tablet-screen-width} {
-            position: relative;
-
             //      figcaption {
             //        position: absolute;
             //        left: 75%;
@@ -86,7 +93,7 @@
             //      }
             margin: {
               right: $float-offset;
-              bottom: $float-offset;
+              bottom: $float-offset * 1.9;
             }
           }
         }
@@ -115,8 +122,8 @@
         figure {
           order: 1;
           float: none;
-          width: 100%;
           box-shadow: none;
+          align-self: center;
 
           figcaption {
             bottom: 0.2em;
@@ -129,7 +136,8 @@
         }
 
         img {
-          width: 100%;
+          max-width: 100%;
+          max-height: 70vh;
           box-shadow: 2px 2px 20px gray;
         }
 

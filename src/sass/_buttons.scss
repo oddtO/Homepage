@@ -1,0 +1,13 @@
+@use "breakpoints";
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  padding: 2em;
+  gap: 0.5em;
+  order: 4;
+
+  @media screen and #{breakpoints.$tablet-screen-width} {
+    display: none;
+  }
+}

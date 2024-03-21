@@ -1,8 +1,8 @@
 @use "sass:string";
 
 $figure-height: 10em;
-$tablet-threshold: 700px;
-$desktop-threshold: 1000px;
+$tablet-threshold: 800px;
+$desktop-threshold: 1200px;
 $desktop-screen-width: string.unquote("(width > #{$desktop-threshold})");
 $tablet-screen-width: string.unquote(
   "(width > #{$tablet-threshold}) and (width <= #{$desktop-threshold})"
