@@ -98,7 +98,7 @@
           }
         }
 
-        h1 {
+        h2 {
           padding: {
             left: 0.5em;
             top: 1em;
@@ -141,7 +141,7 @@
           box-shadow: 2px 2px 20px gray;
         }
 
-        h1 {
+        h2 {
           order: 2;
 
           // width: 100%;
@@ -161,7 +161,7 @@
 
     $img-size: 50vw;
 
-    h1 {
+    h2 {
       display: inline-block;
       width: calc(100% - #{$figure-height});
       font-size: 1.2em;
