@@ -2,7 +2,6 @@
 @use "proportion";
 @use "sass:math";
 @use "breakpoints" as *;
-@use "buttons";
 
 @mixin intro($main-color) {
   .introduction {
