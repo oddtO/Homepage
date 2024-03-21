@@ -10,4 +10,8 @@
   @media screen and #{breakpoints.$tablet-screen-width} {
     display: none;
   }
+
+  svg {
+    width: 1em;
+  }
 }
