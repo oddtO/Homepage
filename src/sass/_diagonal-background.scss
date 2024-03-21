@@ -1,4 +1,6 @@
 @use "breakpoints";
+@use "proportion";
+
 @mixin diagonal-background(
   $top-offset,
   $left-offset,
@@ -8,9 +10,27 @@
   // overflow-x: hidden;
   z-index: -1;
 
+  $pre-diagonal-bg-height: 40vh;
+
+  --pre-diagonal-bg-height: #{$pre-diagonal-bg-height};
+
+  @include proportion.aspect-ratio(
+    40vh,
+    80vh,
+    0.42,
+    1.1,
+    10,
+    --pre-diagonal-bg-height,
+    1vh
+  );
+
+  // @media (aspect-ratio >= 0.43) {
+  //   --pre-diagonal-bg-height: #{$pre-diagonal-bg-height + 5vh};
+  // }
+
   // &::before {
   //   content: " ";
-  //   height: $top-background-height;
+  //   height: $pre-diagonal-bg-height;
   //   background-color: $main-color;
   //   position: absolute;
   //   top: 0;
@@ -19,35 +39,75 @@
   //   z-index: -1;
   // }
 
-  &::after {
-    content: "";
+  @media screen and not #{breakpoints.$mobile-screen-width} {
+    &::after {
+      content: "";
 
-    // top: $top-background-height - 1px;
+      --top-offset: #{$top-offset};
 
-    // left: -100px;
-    position: absolute;
-    height: 4500px;
-    width: 700%;
-    background-color: $main-color;
-    transform: translate(#{$left-offset}, #{$top-offset})
-      rotateZ(#{$rotate-degrees});
-    transform-origin: 0;
-    box-shadow: 2px 2px 20px gray;
+      // top: $top-background-height - 1px;
 
-    $diagonal-offset: 50%;
+      // left: -100px;
+      position: absolute;
+      height: 4500px;
+      width: 700%;
+      background-color: $main-color;
 
-    // background-image: linear-gradient(
-    //   to bottom right,
-    //   $main-color $diagonal_offset,
-    //   #dcdcdc calc(#{$diagonal_offset} + 3px),
-    //   white calc(#{$diagonal_offset} + 12px)
-    // );
+      // transform: translate(#{$left-offset}, var(--top-offset))
+      //   rotateZ(#{$rotate-degrees});
+      // top: $pre-diagonal-bg-height - 1px;
 
-    // background-image: linear-gradient(
-    //   to bottom right,
-    //   $main-color 48%,
-    //   white 50%
-    // );
-    z-index: -1;
+      // transform: rotateZ(#{$rotate-degrees});
+      // transform-origin: 0;
+      box-shadow: 2px 2px 20px gray;
+
+      $diagonal-offset: 50%;
+
+      transform: translate(#{$left-offset}, #{$top-offset})
+        rotateZ(#{$rotate-degrees});
+      transform-origin: 0;
+
+      // background-image: linear-gradient(
+      //   to bottom right,
+      //   $main-color $diagonal_offset,
+      //   #dcdcdc calc(#{$diagonal_offset} + 3px),
+      //   white calc(#{$diagonal_offset} + 12px)
+      // );
+
+      // background-image: linear-gradient(
+      //   to bottom right,
+      //   $main-color 48%,
+      //   white 50%
+      // );
+      z-index: -1;
+    }
+  }
+
+  @media #{breakpoints.$mobile-screen-width} {
+    &::before {
+      content: " ";
+      height: var(--pre-diagonal-bg-height);
+      background-color: $main-color;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: -1;
+    }
+
+    &::after {
+      z-index: -1;
+      content: " ";
+      width: 110%;
+      position: absolute;
+      top: calc(var(--pre-diagonal-bg-height) - 1px);
+      height: 100px;
+      background-image: linear-gradient(
+        to bottom right,
+        $main-color 45%,
+        rgb(190 190 190) 46%,
+        white 50%
+      );
+    }
   }
 }

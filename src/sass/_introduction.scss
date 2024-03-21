@@ -1,5 +1,6 @@
 @use "diagonal-background";
-@use "sass:string";
+@use "proportion";
+@use "sass:math";
 @use "breakpoints" as *;
 
 @mixin intro($main-color) {
@@ -18,20 +19,40 @@
     $top-background-height: 0;
     $bottom-background-height: 1500px;
 
+    // $top-offset: 100px;
+
+    $top-offset: 3em;
+
     @include diagonal-background.diagonal-background(
       $main-color: $main-color,
-      $top-offset: 100px,
+      $top-offset: $top-offset,
       $left-offset: 7%,
       $rotate-degrees: 260deg
     );
 
-    $figure-height: 10em;
+    @media screen and #{$mobile-screen-width} {
+      // height: 40em;
+
+      &::after {
+        --top-offset: -6em;
+
+        // @include proportion.aspect-ratio(
+        //   -9em,
+        //   6em,
+        //   math.div(1, 2.5),
+        //   math.div(1, 1.5),
+        //   30,
+        //   --top-offset,
+        //   1em
+        // );
+      }
+    }
 
     article {
       $introduction-height: 70vh;
 
       // min-height: $introduction-height;
-      margin: 0 3em;
+      margin: 100px 3em;
 
       // width: 30em;
       background-color: white;

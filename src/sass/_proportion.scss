@@ -1,0 +1,40 @@
+@use "sass:math";
+
+@mixin aspect-ratio(
+  $min-val,
+  $max-val,
+  $min-asp-ratio,
+  $max-asp-ratio,
+  $query-count,
+  $prop-name,
+  $unit
+) {
+  $min-max-asp-dif: $max-asp-ratio - $min-asp-ratio;
+  $min-max-val-dif: $max-val - $min-val;
+
+  @debug "aspect-ratio: #{$min-asp-ratio} - #{$max-asp-ratio}";
+
+  $proportion-unit: math.div($min-max-asp-dif, $query-count);
+  $value-unit: math.div(math.div($min-max-val-dif, $unit), $query-count - 1);
+
+  // @error $min-max-val-dif;
+
+  $cur-val: $min-val;
+  $cur-asp-ratio: $min-asp-ratio;
+  $prev-proportion: $min-asp-ratio - $proportion-unit;
+  $prev-val: $min-val - $value-unit * $unit;
+
+  @for $_ from 1 through $query-count {
+    @media (aspect-ratio >= #{$prev-proportion}) and (aspect-ratio <= #{$cur-asp-ratio}) {
+      #{$prop-name}: #{$cur-val};
+    }
+
+    $prev-proportion: $cur-asp-ratio;
+    $prev-val: $cur-val;
+    $cur-asp-ratio: $cur-asp-ratio + $proportion-unit;
+
+    @debug $proportion-unit;
+
+    $cur-val: $cur-val + $value-unit * $unit;
+  }
+}
