@@ -6,9 +6,13 @@ const CssMinimizerWebpackPlugin = require("css-minimizer-webpack-plugin");
 
 module.exports = (env, argv) => {
   const isProduction = argv.mode == "production";
+
   const config = {
     entry: {
       main: "./src/js/index.js",
+    },
+    stats: {
+      loggingDebug: ["sass-loader"],
     },
     output: {
       filename: "index.js",
