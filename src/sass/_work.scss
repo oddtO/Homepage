@@ -1,0 +1,36 @@
+@use "breakpoints";
+@use "project";
+
+.work {
+  padding: 1em 0;
+
+  $work-padding: 1em;
+
+  h2 {
+    padding-bottom: 1em;
+    margin-left: $work-padding;
+
+    @media screen and #{breakpoints.$mobile-screen-width} {
+      text-align: center;
+    }
+  }
+
+  > ul {
+    display: flex;
+    gap: 1em;
+    flex-wrap: wrap;
+    margin: 0 $work-padding;
+    justify-content: center;
+
+    // justify-content: space-between;
+    > li {
+      width: 11em;
+      height: 13em;
+
+      // background-color: violet;
+      box-shadow: 2px 2px 10px #bebebe;
+      display: grid;
+      grid-template: 60% 15% 25% / 100%;
+    }
+  }
+}

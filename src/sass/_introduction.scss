@@ -2,6 +2,7 @@
 @use "proportion";
 @use "sass:math";
 @use "breakpoints" as *;
+@use "links";
 
 @mixin intro($main-color) {
   .introduction {
@@ -11,6 +12,15 @@
     position: relative;
 
     // height: 60vh;
+
+    @include links.links {
+      @media screen and #{$tablet-screen-width} {
+        display: none;
+      }
+
+      padding: 2em;
+      order: 4;
+    }
 
     span {
       line-height: 1.2;

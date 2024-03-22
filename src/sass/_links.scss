@@ -1,17 +1,15 @@
 @use "breakpoints";
 
-.links {
-  display: flex;
-  justify-content: flex-end;
-  padding: 2em;
-  gap: 0.5em;
-  order: 4;
+@mixin links() {
+  .links {
+    display: flex;
+    justify-content: flex-end;
 
-  @media screen and #{breakpoints.$tablet-screen-width} {
-    display: none;
-  }
+    svg {
+      width: 1em;
+    }
 
-  svg {
-    width: 1em;
+    gap: 0.5em;
+    @content;
   }
 }
