@@ -1,0 +1,115 @@
+@use "breakpoints";
+
+.contact-me {
+  height: 15em;
+  display: grid;
+  grid-template: 30% 70%/ 1fr 1.5fr;
+
+  @media screen and #{breakpoints.$mobile-screen-width} {
+    grid-template: 2em 12em 15em / 100%;
+
+    > .img-wrapper {
+      grid-column: 1 !important;
+      grid-row: 3 !important;
+
+      > .photo {
+        width: 100% !important;
+        height: 100% !important;
+      }
+    }
+  }
+
+  color: white;
+
+  img {
+    width: 1.5em;
+    height: 1.5em;
+  }
+
+  p {
+    font-size: 0.8em;
+  }
+
+  > h3 {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    padding-bottom: 0.5em;
+
+    @media screen and #{breakpoints.$mobile-screen-width} {
+      align-items: center;
+      padding-bottom: 0;
+    }
+
+    font-size: 1.2em;
+    font-weight: 900;
+  }
+
+  > address {
+    padding: 1em;
+
+    @media screen and #{breakpoints.$mobile-screen-width} {
+      img {
+        display: none;
+      }
+    }
+  }
+
+  .links {
+    display: flex;
+    justify-content: start;
+
+    @media screen and #{breakpoints.$mobile-screen-width} {
+      justify-content: center;
+    }
+
+    gap: 0.5em;
+    padding-top: 1em;
+  }
+
+  .location {
+    padding: 1.5em 0;
+  }
+
+  .num-wrapper {
+    padding-bottom: 0.5em;
+  }
+
+  .num-wrapper,
+  .email-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+  }
+
+  .location,
+  .num-wrapper,
+  .email-wrapper {
+    font-size: 0.5em;
+  }
+
+  > .img-wrapper {
+    grid-column: 2;
+    grid-row: 1 / -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    > .photo {
+      object-fit: cover;
+      width: 80%;
+      height: 70%;
+      object-position: 50% 40%;
+
+      // @media screen and #{breakpoints.$desktop-screen-width} {
+      //   height: 10em;
+      //   width: 15em;
+      // }
+      //
+      // @media screen and #{breakpoints.$tablet-screen-width} {
+      //   width: 70%;
+      //   height: 80%;
+      // }
+    }
+  }
+}
