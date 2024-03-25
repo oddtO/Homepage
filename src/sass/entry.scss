@@ -3,6 +3,7 @@
 @use "icons";
 @use "work";
 @use "contact-me";
+@use "breakpoints";
 
 $main-color: #00c8e6;
 
@@ -23,8 +24,10 @@ body {
     min-height: 100vh;
 
     @media screen and (aspect-ratio <= 1/0.9) {
-      article {
-        margin-top: 4em;
+      @media not #{breakpoints.$mobile-screen-width} {
+        article {
+          margin-top: 4em;
+        }
       }
 
       min-height: 0;

@@ -12,6 +12,7 @@
 
     @media screen and #{breakpoints.$mobile-screen-width} {
       text-align: center;
+      margin-left: 0;
     }
   }
 
