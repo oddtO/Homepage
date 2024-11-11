@@ -6,8 +6,7 @@
     "test": "jest",
     "startdev": "npx nodemon --watch webpack.config.js --exec \"npx webpack serve --open --mode development\"",
     "compilerelease": "npx webpack --mode production",
-    "distdeploy-first": "npm run compilerelease && git add . && git commit -m \"dist\" && git subtree push --prefix dist origin gh-pages && rm -rf dist/*",
-    "distdeploy-from-second": "npm run compilerelease && git push --delete origin gh-pages && git add . && git commit -m \"dist\" && git subtree push --prefix dist origin gh-pages && rm -rf dist/*"
+    "deploy": "npm run compilerelease && npx gh-pages -d dist"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +22,7 @@
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-html": "^8.0.0",
+    "gh-pages": "^6.2.0",
     "html-loader": "^5.0.0",
     "html-webpack-plugin": "^5.6.0",
     "mini-css-extract-plugin": "^2.8.1",
